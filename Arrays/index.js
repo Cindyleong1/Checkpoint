@@ -40,7 +40,8 @@ pushTrue([1,2,3]) ===> [1, 2, 3, 'last element']
 
 function pushString(arr) {
   // CODE HERE
-  console.log(arr);
+  arr[arr.length] = 'last element'
+  return arr;
 }
 
 /*
@@ -59,6 +60,8 @@ mutateZeroElem([1,2,3]) ===> [1, 2, 3, true]
 
 function push(array, value) {
   // CODE HERE
+  array[array.length] = value
+  return array;
 }
 
 /*
@@ -81,7 +84,10 @@ true
 
 function printElements(array) {
   // CODE HERE
+  for ( var i = 0; i < array.length; i++)
+  console.log(array[i])
 }
+
 
 /*
 QUESTION 4
@@ -109,6 +115,8 @@ unique([1,2,3,2,3,2]) ===> [1, 2, 3];
 */
 
 function unique(array) {
+  var newArr = [...new Set(array)]
+  return newArr
   // CODE HERE
 }
 
@@ -126,6 +134,10 @@ HINT USE AN INNER FOR-LOOP
 
 function compare(array1, array2) {
   // CODE HERE
+  for (var i = 0; i < array1.length; i++){
+  for (var j = 0; j < array2.length; j++)
+  if (array1[i] === array2[j]) return true
+  } return false
 }
 
 /*
@@ -142,6 +154,14 @@ compareArrays([1, 2, 3, 4], [1, 2]) ====> [1, 2]
 
 function compareArrays(array1, array2) {
   // CODE HERE
+  var array3 = []
+  for (var i = 0; i < array1.length; i++){
+    for (var j = 0; j < array2.length; j++){
+      if(array1[i] === array2[j])
+      array3.push(array1[i]);
+    }
+  }
+return array3
 }
 
 /*
@@ -157,6 +177,8 @@ compareArraysOpposite([1,2,3,4], [1,3]) ===> [2, 4]
 
 function compareArraysOpposite(array1, array2) {
   // CODE HERE
+  newArray = array1.filter((onlyInArray1) => !array2.includes(onlyInArray1))
+  return newArray
 }
 
 /*
@@ -182,6 +204,7 @@ retrieveValue(twoDimentionArray, 3, 1) ===> 1
 
 function retrieveValue(arr, row, col) {
   // CODE HERE
+  return arr[row][col]
 }
 
 /*
@@ -212,6 +235,12 @@ createTwoDArray(3, 5) ===> [
 
 function createTwoDArray(row, col) {
   // CODE HERE
+  var newArr = new Array(row)
+  for (var i = 0; i < row; i++) {
+    newArr[i] === 0; newArr[i] = new Array(col);
+    newArr[i].fill(0);
+  }
+  return newArr;
 }
 
 /*
